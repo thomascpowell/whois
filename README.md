@@ -7,7 +7,7 @@ Queries the appropriate server for a domain and prints the result.
 
 ### Usage:
 - Requires `git` and `cargo`
-- Clone the repo, build the binary
+- Clone the repo, build the binary, then run:
 
 ```sh
 ./whois <domain>
