@@ -1,15 +1,22 @@
 mod servers;
 use std::net::TcpStream;
 use std::io::{Read, Write};
+use std::env;
 
 fn main() {
-    let domain = "google.com";
+    let args: Vec<String> = env::args().collect();
+
+    if args.len() != 2 {
+        eprintln!("Invalid number of arguments: {}", args.len());
+        return;
+    }
+    let domain = &args[1];
 
     let servers_res = servers::get_server(&domain);
     let server = match servers_res {
         Some(e) => e,
         None => {
-            eprintln!("No WHOIS server found for domain {}", domain);
+            eprintln!("No server found for: {}", domain);
             return;
         }
     };
