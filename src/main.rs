@@ -1,6 +1,4 @@
 mod servers;
-mod client;
-
 use std::net::TcpStream;
 use std::io::{Read, Write};
 
